@@ -6,7 +6,7 @@ settings_table = {
         -- "arg" is the argument to the stat type, e.g. if in Conky you would write ${cpu cpu0}, 'cpu0' would be the argument. For no argument leave an empty string
         arg='cpu0',
         -- "max" is the maximum value of the data the ring displays. Value should be 100 for percentages
-        max=12,
+        max=100,
         -- "bg_color" is the color of the base ring
         bg_color=0xffffff,
         -- "bg_alpha" is the alpha value of the base ring
