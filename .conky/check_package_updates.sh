@@ -9,7 +9,9 @@ if [ "$1" = "packages" ]; then
             UPDATES=$(CHECKUPDATES_DB="${TMPDIR}/checkup-db-${USER}-packages/" checkupdates)
             echo "$UPDATES" | tail -n 15
             UPDATE_COUNT=$(wc -l <<< "$UPDATES")
-            echo "$(expr $UPDATE_COUNT - 15) not listed"
+            if [ "$UPDATE_COUNT" -gt 15 ]; then
+                echo "$(expr $UPDATE_COUNT - 15) not listed"
+            fi
         else
             CHECKUPDATES_DB="${TMPDIR}/checkup-db-${USER}-packages/" checkupdates
         fi
