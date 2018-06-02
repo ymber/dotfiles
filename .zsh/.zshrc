@@ -8,7 +8,7 @@ if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "xfce4-terminal" ]]; then
     fi
 fi
 
-# Add ~/.zmodules to fpath and set agnoster as zsh prompt
+# Add ~/.zsh to fpath and set agnoster as zsh prompt
 fpath=( "$HOME/.zsh" $fpath )
 autoload -Uz promptinit
 promptinit
