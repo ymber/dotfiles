@@ -9,10 +9,10 @@ if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "xfce4-terminal" ]]; then
 fi
 
 # Add ~/.zmodules to fpath and set agnoster as zsh prompt
-fpath=( "$HOME/.zmodules" $fpath )
+fpath=( "$HOME/.zsh" $fpath )
 autoload -Uz promptinit
 promptinit
 prompt agnoster
 
 # Start ssh-agent
-source $HOME/.zmodules/ssh-agent.zsh
+source $HOME/.zsh/ssh-agent.zsh
