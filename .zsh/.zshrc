@@ -2,9 +2,9 @@
 if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "xfce4-terminal" ]]; then
     # Attach to tmux session if one exists, otherwise start one
     if tmux has-session -t $(whoami) 2>/dev/null; then
-        tmux -2 attach-session -t $(whoami)
+        tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf -2 attach-session -t $(whoami)
     else
-        tmux -2 new-session -s $(whoami)
+        tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf -2 new-session -s $(whoami)
     fi
 fi
 
