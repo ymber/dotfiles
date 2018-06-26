@@ -1,0 +1,13 @@
+{
+    // Python settings
+    "python.linting.pylintPath": "/usr/bin/pylint",
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "/usr/bin/yapf",
+    "python.formatting.yapfArgs": [
+        "--style",
+        "pep8"
+    ],
+
+    // Misc settings
+    "workbench.startupEditor": "newUntitledFile"
+}
