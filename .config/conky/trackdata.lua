@@ -34,7 +34,6 @@ settings = {
 
     music_library = "/home/matthew/Music"
 }
-
 local function locate_playing_file()
     return string.format( "%s/%s", settings["music_library"], conky_parse( "${mpd_file}" ) )
 end
@@ -47,8 +46,12 @@ local function get_album_id( track )
     for key, frame in pairs( id3_frames ) do
         if frame[1] == "TXXX" then
             -- TXXX frame data begins with a null terminated frame descriptor
-            if id3.split_on_char( id3.utf16_to_utf8( id3.text_frame_data( frame[5] )[2] ), 0 )[1] == "MusicBrainz Album Id" then
-                return id3.split_on_char( id3.utf16_to_utf8( id3.text_frame_data( frame[5] )[2] ), 0 )[2]
+            local strings = {}
+            for str in string.gmatch( id3.utf16_to_utf8( id3.text_frame_data( frame[5] )[2] ), "%Z+" ) do
+                table.insert( strings, str )
+            end
+            if strings[1] == "MusicBrainz Album Id" then
+                return strings[2]
             end
         end
     end
@@ -205,3 +208,4 @@ function conky_trackdata()
         imlib_render_image_on_drawable( settings["album_art_position_x"], settings["album_art_position_y"] )
     end
 end
+
