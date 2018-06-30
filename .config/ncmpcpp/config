@@ -1,0 +1,66 @@
+##### directories ######
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory = ~/.cache/lyrics
+
+##### connection settings #####
+mpd_host = localhost
+mpd_port = 6600
+mpd_connection_timeout = 5
+mpd_music_dir = ~/Music
+
+##### delays #####
+playlist_disable_highlight_delay = 0
+message_delay_time = 5
+
+##### song format #####
+song_status_format = {%t - }{%b - }{%a}
+song_window_title_format = {%t - }{%a}
+
+##### columns settings #####
+song_columns_list_format = (20)[]{a} (6f)[green]{NE} (40)[white]{t|f:Title} (30)[cyan]{b} (7f)[magenta]{l}
+
+##### various settings #####
+playlist_display_mode = columns
+browser_display_mode = columns
+search_engine_display_mode = columns
+playlist_editor_display_mode = columns
+progressbar_look = =>
+default_place_to_search_in = database
+user_interface = classic
+data_fetching_delay = no
+media_library_primary_tag = album_artist
+media_library_albums_split_by_date = no
+default_find_mode = wrapped
+default_tag_editor_pattern = %n - %t
+show_hidden_files_in_local_browser = yes
+screen_switcher_mode = playlist, browser
+startup_screen = playlist
+jump_to_now_playing_song_at_start = yes
+ask_before_clearing_playlists = yes
+display_volume_level = no
+mouse_support = yes
+mouse_list_scroll_whole_page = yes
+empty_tag_marker = <empty>
+enable_window_title = yes
+external_editor = nvim
+use_console_editor = yes
+
+##### colors definitions #####
+colors_enabled = yes
+empty_tag_color = cyan
+header_window_color = default
+volume_color = default
+state_line_color = default
+state_flags_color = default:b
+main_window_color = yellow
+color1 = white
+color2 = green
+progressbar_color = black:b
+progressbar_elapsed_color = green:b
+statusbar_color = default
+statusbar_time_color = default:b
+player_state_color = default:b
+alternative_ui_separator_color = black:b
+window_border_color = green
+active_window_border = red
+
