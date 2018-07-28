@@ -1,4 +1,4 @@
-# Attach to or create a tmux session if the shell is a child of xfce4-terminal
+# Attach to or create a tmux session if the shell is a child of termite
 if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "termite" ]]; then
     # Attach to tmux session if one exists, otherwise start one
     if tmux has-session -t $(whoami) 2>/dev/null; then
@@ -8,11 +8,15 @@ if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "termite" ]]; then
     fi
 fi
 
-# Add ~/.zsh to fpath and set agnoster as zsh prompt
-fpath=( "$HOME/.zsh" $fpath )
-autoload -Uz promptinit
-promptinit
-prompt agnoster
+# Set appropriate prompt for terminal
+if [ "$TERM" = "linux" ]; then
+    export PS1="[%n@%m %1d]%# "
+else
+    fpath=( "$HOME/.zsh" $fpath )
+    autoload -Uz promptinit
+    promptinit
+    prompt agnoster
+fi
 
 # Start ssh-agent
 source $HOME/.zsh/ssh-agent.zsh
