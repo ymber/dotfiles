@@ -19,7 +19,7 @@ else
 fi
 
 # Start ssh-agent
-source $HOME/.zsh/ssh-agent.zsh
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Immediately write history, load new history as it is created, configure history file
 setopt SHARE_HISTORY
