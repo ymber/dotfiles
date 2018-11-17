@@ -1,5 +1,5 @@
 # Attach to or create a tmux session if the shell is a child of termite
-if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "termite" ]]; then
+if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "st" ]]; then
     # Attach to tmux session if one exists, otherwise start one
     if tmux has-session -t $(whoami) 2>/dev/null; then
         tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf -2 attach-session -t $(whoami)
