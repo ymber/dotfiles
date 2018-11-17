@@ -42,7 +42,7 @@ mouse_support = yes
 mouse_list_scroll_whole_page = yes
 empty_tag_marker = <empty>
 enable_window_title = yes
-external_editor = nvim
+external_editor = vim
 use_console_editor = yes
 
 ##### colors definitions #####
