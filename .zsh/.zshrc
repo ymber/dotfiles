@@ -1,4 +1,4 @@
-# Attach to or create a tmux session if the shell is a child of termite
+# Attach to or create a tmux session if the shell is a child of st
 if [[ "$(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$))" == "st" ]]; then
     # Attach to tmux session if one exists, otherwise start one
     if tmux has-session -t $(whoami) 2>/dev/null; then
