@@ -1,0 +1,102 @@
+PLUSMINUS="±"
+BRANCH="¬"
+ERR="!"
+GEAR="*"
+
+# Add a new segment to the prompt
+prompt_segment() {
+  local fg
+  [[ -n $1 ]] && fg="%F{$1}" || fg="%f"
+  print -n "$fg"
+  [[ -n $2 ]] && print -n $2
+}
+
+# End custom foreground color at the end of the segment
+prompt_end() {
+  print -n "%f"
+}
+
+# Indicate error return from previous command
+# Indicate any running background processes
+prompt_status() {
+  local symbols
+  symbols=()
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$ERR"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
+
+  [[ -n "$symbols" ]] && prompt_segment default " $symbols "
+}
+
+# Show user@hostname for current session
+prompt_context() {
+  local user=`whoami`
+
+  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
+    prompt_segment default "%(!.%{%F{yellow}%}.)$user@%m "
+  fi
+}
+
+# Display current virtual environment
+prompt_virtualenv() {
+  if [[ -n $VIRTUAL_ENV ]]; then
+    color=cyan
+    prompt_segment $color " $(basename $VIRTUAL_ENV) "
+  fi
+}
+
+# Show current directory
+prompt_dir() {
+  prompt_segment blue ' %~ '
+}
+
+# Show current branch and branch status
+prompt_git() {
+  local color ref
+  is_dirty() {
+    test -n "$(git status --porcelain --ignore-submodules)"
+  }
+  ref="$vcs_info_msg_0_"
+  if [[ -n "$ref" ]]; then
+    if is_dirty; then
+      color=yellow
+      ref="${ref} $PLUSMINUS"
+    else
+      color=green
+    fi
+    ref="$BRANCH $ref"
+    prompt_segment $color " $ref"
+  fi
+}
+
+## Main prompt
+prompt_yutna_main() {
+  RETVAL=$?
+  prompt_status
+  prompt_context
+  prompt_virtualenv
+  prompt_dir
+  prompt_git
+  prompt_end
+}
+
+prompt_yutna_precmd() {
+  vcs_info
+  PROMPT='%f$(prompt_yutna_main) '
+}
+
+prompt_yutna_setup() {
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  prompt_opts=(cr subst percent)
+
+  add-zsh-hook precmd prompt_yutna_precmd
+
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' check-for-changes false
+  zstyle ':vcs_info:git*' formats '%b'
+  zstyle ':vcs_info:git*' actionformats '%b (%a)'
+}
+
+prompt_yutna_setup
+

@@ -15,7 +15,7 @@ else
     fpath=( "$HOME/.zsh" $fpath )
     autoload -Uz promptinit
     promptinit
-    prompt agnoster
+    prompt yutna
 fi
 
 # Start ssh-agent
