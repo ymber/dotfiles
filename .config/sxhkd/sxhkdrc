@@ -8,10 +8,13 @@ super + t
 
 # Volume controls
 XF86AudioMute
-    amixer -D pulse set Master toggle
+    amixer -q -D pulse set Master toggle && \
+    notify-send -i /usr/share/icons/Paper/32x32/status/audio-volume-medium.png "$(amixer get Master | grep -o -P "\[\d*%\] \[.\d*\.\d*dB\] \[\w*\]")"
 
 XF86AudioRaiseVolume
-    amixer set Master 5%+
+    amixer -q set Master 5%+ && \
+    notify-send -i /usr/share/icons/Paper/32x32/status/audio-volume-medium.png "$(amixer get Master | grep -o -P "\[\d*%\] \[.\d*\.\d*dB\] \[\w*\]")"
 
 XF86AudioLowerVolume
-    amixer set Master 5%-
+    amixer -q set Master 5%- && \
+    notify-send -i /usr/share/icons/Paper/32x32/status/audio-volume-medium.png "$(amixer get Master | grep -o -P "\[\d*%\] \[.\d*\.\d*dB\] \[\w*\]")"
