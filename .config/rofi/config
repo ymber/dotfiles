@@ -11,4 +11,4 @@ rofi.line-margin: 5
 rofi.sidebar-mode: true
 rofi.separator-style: none
 rofi.hide-scrollbar: true
-rofi.modi: ssh,window,run,drun
+rofi.modi: window,run,drun
