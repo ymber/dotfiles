@@ -4,3 +4,6 @@
 
 setxkbmap -layout "gb"
 sxhkd &
+dunst &
+~/.config/conky/startup.sh &
+
