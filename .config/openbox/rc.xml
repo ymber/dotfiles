@@ -47,7 +47,7 @@
 
 <theme>
   <name>Arcbox</name>
-  <titleLayout>LIMC</titleLayout>
+  <titleLayout>LIMCD</titleLayout>
   <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -61,7 +61,7 @@
   <keepBorder>yes</keepBorder>
   <animateIconify>yes</animateIconify>
   <font place="ActiveWindow">
-    <name>Droid Sans</name>
+    <name>Roboto</name>
     <size>10</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -70,7 +70,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="InactiveWindow">
-    <name>Droid Sans</name>
+    <name>Roboto</name>
     <size>10</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -79,7 +79,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="MenuHeader">
-    <name>Droid Sans</name>
+    <name>Roboto</name>
     <size>10</size>
     <!-- font size in points -->
     <weight>normal</weight>
@@ -88,7 +88,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="MenuItem">
-    <name>Droid Sans</name>
+    <name>Roboto</name>
     <size>10</size>
     <!-- font size in points -->
     <weight>normal</weight>
@@ -97,7 +97,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="ActiveOnScreenDisplay">
-    <name>Droid Sans</name>
+    <name>Roboto</name>
     <size>10</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -106,7 +106,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="InactiveOnScreenDisplay">
-    <name>Droid Sans</name>
+    <name>Roboto</name>
     <size>10</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -190,30 +190,6 @@
   <chainQuitKey>C-g</chainQuitKey>
 
   <!-- Keybindings for desktop switching -->
-  <keybind key="C-S-A-Left">
-    <action name="GoToDesktop"><to>left</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-S-A-Right">
-    <action name="GoToDesktop"><to>right</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-S-A-Up">
-    <action name="GoToDesktop"><to>up</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-S-A-Down">
-    <action name="GoToDesktop"><to>down</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Left">
-    <action name="SendToDesktop"><to>left</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Right">
-    <action name="SendToDesktop"><to>right</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Up">
-    <action name="SendToDesktop"><to>up</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="S-A-Down">
-    <action name="SendToDesktop"><to>down</to><wrap>no</wrap></action>
-  </keybind>
   <keybind key="W-F1">
     <action name="GoToDesktop"><to>1</to></action>
   </keybind>
@@ -225,6 +201,18 @@
   </keybind>
   <keybind key="W-F4">
     <action name="GoToDesktop"><to>4</to></action>
+  </keybind>
+  <keybind key="W-S-F1">
+    <action name="SendToDesktop"><to>1</to></action>
+  </keybind>
+  <keybind key="W-S-F2">
+    <action name="SendToDesktop"><to>2</to></action>
+  </keybind>
+  <keybind key="W-S-F3">
+    <action name="SendToDesktop"><to>3</to></action>
+  </keybind>
+  <keybind key="W-S-F4">
+    <action name="SendToDesktop"><to>4</to></action>
   </keybind>
   <keybind key="W-d">
     <action name="ToggleShowDesktop"/>
@@ -262,38 +250,6 @@
       </finalactions>
     </action>
   </keybind>
-  <keybind key="C-A-Tab">
-    <action name="NextWindow">
-      <panels>yes</panels><desktop>yes</desktop>
-      <finalactions>
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
-      </finalactions>
-    </action>
-  </keybind>
-
-  <!-- Keybindings for window switching with the arrow keys -->
-  <keybind key="W-S-Right">
-    <action name="DirectionalCycleWindows">
-      <direction>right</direction>
-    </action>
-  </keybind>
-  <keybind key="W-S-Left">
-    <action name="DirectionalCycleWindows">
-      <direction>left</direction>
-    </action>
-  </keybind>
-  <keybind key="W-S-Up">
-    <action name="DirectionalCycleWindows">
-      <direction>up</direction>
-    </action>
-  </keybind>
-  <keybind key="W-S-Down">
-    <action name="DirectionalCycleWindows">
-      <direction>down</direction>
-    </action>
-  </keybind>
 </keyboard>
 
 <mouse>
@@ -310,50 +266,9 @@
        switching due to hitting the edge of the screen -->
 
   <context name="Frame">
-    <mousebind button="A-Left" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-    </mousebind>
-    <mousebind button="A-Left" action="Click">
-      <action name="Unshade"/>
-    </mousebind>
-    <mousebind button="A-Left" action="Drag">
-      <action name="Move"/>
-    </mousebind>
-
-    <mousebind button="A-Right" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="Unshade"/>
-    </mousebind>
     <mousebind button="A-Right" action="Drag">
       <action name="Resize"/>
     </mousebind> 
-
-    <mousebind button="A-Middle" action="Press">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
-    </mousebind>
-
-    <mousebind button="A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="C-A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="C-A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="A-S-Up" action="Click">
-      <action name="SendToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-S-Down" action="Click">
-      <action name="SendToDesktop"><to>next</to></action>
-    </mousebind>
   </context>
 
   <context name="Titlebar">
@@ -362,27 +277,6 @@
     </mousebind>
     <mousebind button="Left" action="DoubleClick">
       <action name="ToggleMaximize"/>
-    </mousebind>
-
-    <mousebind button="Up" action="Click">
-      <action name="if">
-        <shaded>no</shaded>
-        <then>
-          <action name="Shade"/>
-          <action name="FocusToBottom"/>
-          <action name="Unfocus"/>
-          <action name="Lower"/>
-        </then>
-      </action>
-    </mousebind>
-    <mousebind button="Down" action="Click">
-      <action name="if">
-        <shaded>yes</shaded>
-        <then>
-          <action name="Unshade"/>
-          <action name="Raise"/>
-        </then>
-      </action>
     </mousebind>
   </context>
 
@@ -406,47 +300,6 @@
     </mousebind>
   </context>
 
-  <context name="Top">
-    <mousebind button="Left" action="Drag">
-      <action name="Resize"><edge>top</edge></action>
-    </mousebind>
-  </context>
-
-  <context name="Left">
-    <mousebind button="Left" action="Drag">
-      <action name="Resize"><edge>left</edge></action>
-    </mousebind>
-  </context>
-
-  <context name="Right">
-    <mousebind button="Left" action="Drag">
-      <action name="Resize"><edge>right</edge></action>
-    </mousebind>
-  </context>
-
-  <context name="Bottom">
-    <mousebind button="Left" action="Drag">
-      <action name="Resize"><edge>bottom</edge></action>
-    </mousebind>
-
-    <mousebind button="Right" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="ShowMenu"><menu>client-menu</menu></action>
-    </mousebind>
-  </context>
-
-  <context name="TRCorner BRCorner TLCorner BLCorner">
-    <mousebind button="Left" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="Unshade"/>
-    </mousebind>
-    <mousebind button="Left" action="Drag">
-      <action name="Resize"/>
-    </mousebind>
-  </context>
-
   <context name="Client">
     <mousebind button="Left" action="Press">
       <action name="Focus"/>
@@ -462,20 +315,6 @@
     </mousebind>
   </context>
 
-  <context name="Icon">
-    <mousebind button="Left" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="Unshade"/>
-      <action name="ShowMenu"><menu>client-menu</menu></action>
-    </mousebind>
-    <mousebind button="Right" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-      <action name="ShowMenu"><menu>client-menu</menu></action>
-    </mousebind>
-  </context>
-
   <context name="AllDesktops">
     <mousebind button="Left" action="Press">
       <action name="Focus"/>
@@ -484,16 +323,6 @@
     </mousebind>
     <mousebind button="Left" action="Click">
       <action name="ToggleOmnipresent"/>
-    </mousebind>
-  </context>
-
-  <context name="Shade">
-    <mousebind button="Left" action="Press">
-      <action name="Focus"/>
-      <action name="Raise"/>
-    </mousebind>
-    <mousebind button="Left" action="Click">
-      <action name="ToggleShade"/>
     </mousebind>
   </context>
 
@@ -546,26 +375,6 @@
   </context>
 
   <context name="Desktop">
-    <mousebind button="Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-
-    <mousebind button="A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="C-A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="C-A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-
     <mousebind button="Left" action="Press">
       <action name="Focus"/>
       <action name="Raise"/>
@@ -583,21 +392,6 @@
     </mousebind> 
     <mousebind button="Right" action="Press">
       <action name="ShowMenu"><menu>root-menu</menu></action>
-    </mousebind>
-  </context>
-
-  <context name="MoveResize">
-    <mousebind button="Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
     </mousebind>
   </context>
 </mouse>
@@ -628,102 +422,5 @@
   <manageDesktops>yes</manageDesktops>
   <!-- show the manage desktops section in the client-list-(combined-)menu -->
 </menu>
-
-<applications>
-<!--
-  # this is an example with comments through out. use these to make your
-  # own rules, but without the comments of course.
-  # you may use one or more of the name/class/role/title/type rules to specify
-  # windows to match
-
-  <application name="the window's _OB_APP_NAME property (see obxprop)"
-              class="the window's _OB_APP_CLASS property (see obxprop)"
-          groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)"
-         groupclass="the window's _OB_APP_GROUP_CLASS property (see obxprop)"
-               role="the window's _OB_APP_ROLE property (see obxprop)"
-              title="the window's _OB_APP_TITLE property (see obxprop)"
-               type="the window's _OB_APP_TYPE property (see obxprob)..
-                      (if unspecified, then it is 'dialog' for child windows)">
-  # you may set only one of name/class/role/title/type, or you may use more
-  # than one together to restrict your matches.
-
-  # the name, class, role, and title use simple wildcard matching such as those
-  # used by a shell. you can use * to match any characters and ? to match
-  # any single character.
-
-  # the type is one of: normal, dialog, splash, utility, menu, toolbar, dock,
-  #    or desktop
-
-  # when multiple rules match a window, they will all be applied, in the
-  # order that they appear in this list
-
-
-    # each rule element can be left out or set to 'default' to specify to not 
-    # change that attribute of the window
-
-    <decor>yes</decor>
-    # enable or disable window decorations
-
-    <shade>no</shade>
-    # make the window shaded when it appears, or not
-
-    <position force="no">
-      # the position is only used if both an x and y coordinate are provided
-      # (and not set to 'default')
-      # when force is "yes", then the window will be placed here even if it
-      # says you want it placed elsewhere.  this is to override buggy
-      # applications who refuse to behave
-      <x>center</x>
-      # a number like 50, or 'center' to center on screen. use a negative number
-      # to start from the right (or bottom for <y>), ie -50 is 50 pixels from
-      # the right edge (or bottom). use 'default' to specify using value
-      # provided by the application, or chosen by openbox, instead.
-      <y>200</y>
-      <monitor>1</monitor>
-      # specifies the monitor in a xinerama setup.
-      # 1 is the first head, or 'mouse' for wherever the mouse is
-    </position>
-
-    <size>
-      # the size to make the window.
-      <width>20</width>
-      # a number like 20, or 'default' to use the size given by the application.
-      # you can use fractions such as 1/2 or percentages such as 75% in which
-      # case the value is relative to the size of the monitor that the window
-      # appears on.
-      <height>30%</height>
-    </size>
-
-    <focus>yes</focus>
-    # if the window should try be given focus when it appears. if this is set
-    # to yes it doesn't guarantee the window will be given focus. some
-    # restrictions may apply, but Openbox will try to
-
-    <desktop>1</desktop>
-    # 1 is the first desktop, 'all' for all desktops
-
-    <layer>normal</layer>
-    # 'above', 'normal', or 'below'
-
-    <iconic>no</iconic>
-    # make the window iconified when it appears, or not
-
-    <skip_pager>no</skip_pager>
-    # asks to not be shown in pagers
-
-    <skip_taskbar>no</skip_taskbar>
-    # asks to not be shown in taskbars. window cycling actions will also
-    # skip past such windows
-
-    <fullscreen>yes</fullscreen>
-    # make the window in fullscreen mode when it appears
-
-    <maximized>true</maximized>
-    # 'Horizontal', 'Vertical' or boolean (yes/no)
-  </application>
-
-  # end of the example
--->
-</applications>
 
 </openbox_config>
