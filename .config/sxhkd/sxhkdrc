@@ -18,3 +18,6 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
     amixer -q set Master 5%- && \
     notify-send -i /usr/share/icons/Paper/32x32/status/audio-volume-medium.png -t 1000 "$(amixer get Master | grep -o -P "\[\d*%\] \[.\d*\.\d*dB\] \[\w*\]")"
+
+Print
+    maim ~/Pictures/$(date "+%Y-%m-%d_%H%M_%S").png
