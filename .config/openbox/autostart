@@ -4,6 +4,8 @@
 
 setxkbmap -layout "gb"
 sxhkd &
+compton --config ~/.config/compton/compton.conf &
 dunst &
 ~/.config/conky/startup.sh &
+feh --bg-scale "/home/matthew/Pictures/dandelions_monocon.png" &
 
