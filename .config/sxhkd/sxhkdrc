@@ -1,7 +1,7 @@
 # Launch applications
 
 super + a
-    rofi -show drun -matching fuzzy
+    rofi -matching fuzzy
 
 super + t
     st
