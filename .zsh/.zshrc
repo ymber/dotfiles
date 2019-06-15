@@ -35,3 +35,19 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
+# Use Vi keys, update mode info on keymap change and update prompt
+bindkey -v
+
+function zle-line-init zle-keymap-select {
+    case ${KEYMAP} in
+        (vicmd)
+            MODE_PROMPT_CHAR="N" ;;
+        (main|viins)
+            MODE_PROMPT_CHAR="I" ;;
+        (*)
+            MODE_PROMPT_CHAR="E" ;;
+    esac
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
