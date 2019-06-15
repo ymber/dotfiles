@@ -24,7 +24,7 @@ prompt_status() {
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$ERR"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
 
-  [[ -n "$symbols" ]] && prompt_segment default " $symbols "
+  [[ -n "$symbols" ]] && prompt_segment default "$symbols "
 }
 
 # Show user@hostname for current session
@@ -32,7 +32,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment default "%(!.%{%F{yellow}%}.)$user@%m "
+    prompt_segment default "%(!.%{%F{yellow}%}.)$user@%m"
   fi
 }
 
@@ -40,13 +40,13 @@ prompt_context() {
 prompt_virtualenv() {
   if [[ -n $VIRTUAL_ENV ]]; then
     color=cyan
-    prompt_segment $color " $(basename $VIRTUAL_ENV) "
+    prompt_segment $color " $(basename $VIRTUAL_ENV)"
   fi
 }
 
 # Show current directory
 prompt_dir() {
-  prompt_segment blue ' %~ '
+  prompt_segment blue " %~"
 }
 
 # Show current branch and branch status
@@ -68,11 +68,16 @@ prompt_git() {
   fi
 }
 
+prompt_vi_mode() {
+  prompt_segment yellow " $MODE_PROMPT_CHAR"
+}
+
 ## Main prompt
 prompt_yutna_main() {
   RETVAL=$?
   prompt_status
   prompt_context
+  prompt_vi_mode
   prompt_virtualenv
   prompt_dir
   prompt_git
@@ -99,4 +104,3 @@ prompt_yutna_setup() {
 }
 
 prompt_yutna_setup
-
